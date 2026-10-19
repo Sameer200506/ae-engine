@@ -1,0 +1,53 @@
+# NOTICE
+
+## AionUi
+
+This project was started from a brief that referenced
+[iOfficeAI/AionUi](https://github.com/iOfficeAI/AionUi) (Apache-2.0) as a
+starting point. AionUi is an **Electron desktop application** that wraps
+locally-installed CLI coding agents; this project is a **multi-tenant web
+application**. Their architectures have effectively nothing in common, so no
+AionUi source code was copied into this repository.
+
+What *was* borrowed is design-level, not literal:
+
+- **Document-parsing library selection.** AionUi uses `mammoth` (.docx),
+  `turndown` (HTML to Markdown) and similar parsers for its file-preview
+  features. The same libraries are used here for knowledge-base ingestion,
+  because they are the right tools for that job.
+- **Streaming Markdown rendering approach.** AionUi renders assistant output
+  with `react-markdown` plus remark plugins; the same approach is used here.
+
+AionUi's own licence (Apache-2.0) and trademark are untouched by this project.
+"AionUi" is their mark, and this project neither uses it nor implies any
+endorsement or affiliation.
+
+**If you copy code from AionUi into this repository**, you take on the
+obligations of Apache-2.0: retain their `LICENSE` and `NOTICE` files, and state
+clearly in modified files that you changed them. Branding removal is permitted
+by Apache-2.0, but the licence text and attribution are not optional.
+
+## Third-party dependencies
+
+All runtime dependencies are MIT, ISC or Apache-2.0 licensed. The notable ones:
+
+| Package | Purpose | Licence |
+| --- | --- | --- |
+| `next`, `react`, `react-dom` | Application framework | MIT |
+| `stripe` | Billing | MIT |
+| `bcryptjs` | Password hashing | MIT |
+| `mammoth` | .docx text extraction | BSD-2-Clause |
+| `unpdf` | PDF text extraction | MIT |
+| `turndown` | HTML to Markdown | MIT |
+| `cheerio` | URL HTML parsing | MIT |
+| `react-markdown`, `remark-gfm` | Assistant output rendering | MIT |
+
+`node:sqlite` is a Node.js built-in, not a bundled dependency.
+
+## Model providers
+
+Chat and embedding requests are sent to whichever OpenAI-compatible endpoint you
+configure (OpenRouter by default). You are responsible for complying with that
+provider's terms, and for the data-handling implications of sending your users'
+content to it. Free model tiers frequently permit prompt logging and training on
+submitted data — check before pointing a paying customer's traffic at one.

@@ -1,0 +1,27 @@
+node_modules/
+.next/
+out/
+build/
+next-env.d.ts
+
+# Local SQLite database + WAL files
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Env files (never commit real secrets)
+.env
+.env.local
+.env*.local
+
+# Upstream reference clone (see NOTICE)
+reference/
+
+.DS_Store
+*.log
+npm-debug.log*
+.vscode/
+.idea/
+tsconfig.tsbuildinfo
